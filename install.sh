@@ -19,12 +19,13 @@ echo 'USER=xbian' | sudo tee -a /etc/default/transmission-daemon
 sudo sed -i 's/USER=.*/USER=xbian/'  /etc/init.d/transmission-daemon
 sudo sed -i 's/setuid.*/setuid xbian/'  /etc/init/transmission-daemon.conf
 sudo sed -i 's/setgid.*/setgid xbian/'  /etc/init/transmission-daemon.conf
-
+sudo sed -i 's/SHARESMB=yes/SHARESMB=no/' /etc/usbmount/usbmount.conf
 
 mkdir -p /home/xbian/backup_logs
 mkdir -p /home/xbian/backup_scripts
 chmod u+x ./backup_from_wdred4g_to_wdgreen1g.sh
 cp ./backup_from_wdred4g_to_wdgreen1g.sh /home/xbian/backup_scripts
+cp ./backup_from_wdred4g_to_seagate.sh /home/xbian/backup_scripts
 crontab -l | { cat; echo "0 10 * * * /home/xbian/backup_scripts/backup_from_wdred4g_to_wdgreen1g.sh"; } | sort|uniq |crontab -
 
 sudo cp ./shares.conf /etc/samba/

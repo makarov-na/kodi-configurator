@@ -5,6 +5,6 @@ rsync --progress -r  -v -t --del /media/WDRED4G/photo/ /media/WDGREEN1GB/photo/ 
 echo ========photo sync stop $(date)============ >> /home/xbian/backup_logs/sync_$postfix.log
 
 echo ========video sync start $(date)=========== >> /home/xbian/backup_logs/sync_$postfix.log
-rsync --progress -r  -v -t --del /media/WDRED4G/video/Âèäåîñúåìêè/ /media/WDGREEN1GB/video/Âèäåîñúåìêè/ >> /home/xbian/backup_logs/sync_$postfix.log
+rsync --progress -r  -v -t --del /media/WDRED4G/video/Ð’Ð¸Ð´ÐµÐ¾ÑÑŠÐµÐ¼ÐºÐ¸/ /media/WDGREEN1GB/video/Ð’Ð¸Ð´ÐµÐ¾ÑÑŠÐµÐ¼ÐºÐ¸/ >> /home/xbian/backup_logs/sync_$postfix.log
 
 echo ========video sync stop $(date)============ >> /home/xbian/backup_logs/sync_$postfix.log

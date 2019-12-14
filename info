@@ -1,0 +1,306 @@
+
+Udevadm info starts with the device specified by the devpath and then
+walks up the chain of parent devices. It prints for every device
+found, all possible attributes in the udev rules key format.
+A rule to match, can be composed by the attributes of the device
+and the attributes from one single parent device.
+
+  looking at device '/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/block/sda/sda1':
+    KERNEL=="sda1"
+    SUBSYSTEM=="block"
+    DRIVER==""
+    ATTR{alignment_offset}=="0"
+    ATTR{discard_alignment}=="0"
+    ATTR{inflight}=="       0        0"
+    ATTR{partition}=="1"
+    ATTR{ro}=="0"
+    ATTR{size}=="3907022848"
+    ATTR{start}=="2048"
+    ATTR{stat}=="    2706        1   206352    17071   285960  1578009 13994520   590505        0   369264   369264        0        0        0        0"
+
+  looking at parent device '/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/block/sda':
+    KERNELS=="sda"
+    SUBSYSTEMS=="block"
+    DRIVERS==""
+    ATTRS{alignment_offset}=="0"
+    ATTRS{capability}=="50"
+    ATTRS{discard_alignment}=="0"
+    ATTRS{events}==""
+    ATTRS{events_async}==""
+    ATTRS{events_poll_msecs}=="-1"
+    ATTRS{ext_range}=="256"
+    ATTRS{hidden}=="0"
+    ATTRS{inflight}=="       0        0"
+    ATTRS{range}=="16"
+    ATTRS{removable}=="0"
+    ATTRS{ro}=="0"
+    ATTRS{size}=="3907029167"
+    ATTRS{stat}=="    2801        1   210574    17476   524176  1578009 13994520  5564921        0   369728   369728        0        0        0        0"
+
+  looking at parent device '/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0':
+    KERNELS=="3:0:0:0"
+    SUBSYSTEMS=="scsi"
+    DRIVERS=="sd"
+    ATTRS{blacklist}==""
+    ATTRS{device_blocked}=="0"
+    ATTRS{device_busy}=="1"
+    ATTRS{eh_timeout}=="10"
+    ATTRS{evt_capacity_change_reported}=="0"
+    ATTRS{evt_inquiry_change_reported}=="0"
+    ATTRS{evt_lun_change_reported}=="0"
+    ATTRS{evt_media_change}=="0"
+    ATTRS{evt_mode_parameter_change_reported}=="0"
+    ATTRS{evt_soft_threshold_reached}=="0"
+    ATTRS{inquiry}==""
+    ATTRS{iocounterbits}=="32"
+    ATTRS{iodone_cnt}=="0x80b22"
+    ATTRS{ioerr_cnt}=="0x58"
+    ATTRS{iorequest_cnt}=="0x80b23"
+    ATTRS{max_sectors}=="240"
+    ATTRS{model}=="Expansion       "
+    ATTRS{queue_depth}=="1"
+    ATTRS{queue_type}=="none"
+    ATTRS{rev}=="0502"
+    ATTRS{scsi_level}=="7"
+    ATTRS{state}=="running"
+    ATTRS{timeout}=="30"
+    ATTRS{type}=="0"
+    ATTRS{vendor}=="Seagate "
+
+  looking at parent device '/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0':
+    KERNELS=="target3:0:0"
+    SUBSYSTEMS=="scsi"
+    DRIVERS==""
+
+  looking at parent device '/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3':
+    KERNELS=="host3"
+    SUBSYSTEMS=="scsi"
+    DRIVERS==""
+
+  looking at parent device '/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0':
+    KERNELS=="1-1.2:1.0"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="usb-storage"
+    ATTRS{authorized}=="1"
+    ATTRS{bAlternateSetting}==" 0"
+    ATTRS{bInterfaceClass}=="08"
+    ATTRS{bInterfaceNumber}=="00"
+    ATTRS{bInterfaceProtocol}=="50"
+    ATTRS{bInterfaceSubClass}=="06"
+    ATTRS{bNumEndpoints}=="02"
+    ATTRS{supports_autosuspend}=="1"
+
+  looking at parent device '/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2':
+    KERNELS=="1-1.2"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="usb"
+    ATTRS{authorized}=="1"
+    ATTRS{avoid_reset_quirk}=="0"
+    ATTRS{bConfigurationValue}=="1"
+    ATTRS{bDeviceClass}=="00"
+    ATTRS{bDeviceProtocol}=="00"
+    ATTRS{bDeviceSubClass}=="00"
+    ATTRS{bMaxPacketSize0}=="64"
+    ATTRS{bMaxPower}=="100mA"
+    ATTRS{bNumConfigurations}=="1"
+    ATTRS{bNumInterfaces}==" 1"
+    ATTRS{bcdDevice}=="0100"
+    ATTRS{bmAttributes}=="80"
+    ATTRS{busnum}=="1"
+    ATTRS{configuration}==""
+    ATTRS{devnum}=="7"
+    ATTRS{devpath}=="1.2"
+    ATTRS{devspec}=="  (null)"
+    ATTRS{idProduct}=="2321"
+    ATTRS{idVendor}=="0bc2"
+    ATTRS{ltm_capable}=="no"
+    ATTRS{manufacturer}=="Seagate"
+    ATTRS{maxchild}=="0"
+    ATTRS{product}=="Expansion"
+    ATTRS{quirks}=="0x0"
+    ATTRS{removable}=="removable"
+    ATTRS{rx_lanes}=="1"
+    ATTRS{serial}=="NA4AMWZK"
+    ATTRS{speed}=="480"
+    ATTRS{tx_lanes}=="1"
+    ATTRS{urbnum}=="1842963"
+    ATTRS{version}==" 2.10"
+
+  looking at parent device '/devices/platform/soc/3f980000.usb/usb1/1-1':
+    KERNELS=="1-1"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="usb"
+    ATTRS{authorized}=="1"
+    ATTRS{avoid_reset_quirk}=="0"
+    ATTRS{bConfigurationValue}=="1"
+    ATTRS{bDeviceClass}=="09"
+    ATTRS{bDeviceProtocol}=="02"
+    ATTRS{bDeviceSubClass}=="00"
+    ATTRS{bMaxPacketSize0}=="64"
+    ATTRS{bMaxPower}=="2mA"
+    ATTRS{bNumConfigurations}=="1"
+    ATTRS{bNumInterfaces}==" 1"
+    ATTRS{bcdDevice}=="0200"
+    ATTRS{bmAttributes}=="e0"
+    ATTRS{busnum}=="1"
+    ATTRS{configuration}==""
+    ATTRS{devnum}=="2"
+    ATTRS{devpath}=="1"
+    ATTRS{idProduct}=="9514"
+    ATTRS{idVendor}=="0424"
+    ATTRS{ltm_capable}=="no"
+    ATTRS{maxchild}=="5"
+    ATTRS{quirks}=="0x0"
+    ATTRS{removable}=="unknown"
+    ATTRS{rx_lanes}=="1"
+    ATTRS{speed}=="480"
+    ATTRS{tx_lanes}=="1"
+    ATTRS{urbnum}=="85"
+    ATTRS{version}==" 2.00"
+
+  looking at parent device '/devices/platform/soc/3f980000.usb/usb1':
+    KERNELS=="usb1"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="usb"
+    ATTRS{authorized}=="1"
+    ATTRS{authorized_default}=="1"
+    ATTRS{avoid_reset_quirk}=="0"
+    ATTRS{bConfigurationValue}=="1"
+    ATTRS{bDeviceClass}=="09"
+    ATTRS{bDeviceProtocol}=="01"
+    ATTRS{bDeviceSubClass}=="00"
+    ATTRS{bMaxPacketSize0}=="64"
+    ATTRS{bMaxPower}=="0mA"
+    ATTRS{bNumConfigurations}=="1"
+    ATTRS{bNumInterfaces}==" 1"
+    ATTRS{bcdDevice}=="0419"
+    ATTRS{bmAttributes}=="e0"
+    ATTRS{busnum}=="1"
+    ATTRS{configuration}==""
+    ATTRS{devnum}=="1"
+    ATTRS{devpath}=="0"
+    ATTRS{idProduct}=="0002"
+    ATTRS{idVendor}=="1d6b"
+    ATTRS{interface_authorized_default}=="1"
+    ATTRS{ltm_capable}=="no"
+    ATTRS{manufacturer}=="Linux 4.19.60+ dwc_otg_hcd"
+    ATTRS{maxchild}=="1"
+    ATTRS{product}=="DWC OTG Controller"
+    ATTRS{quirks}=="0x0"
+    ATTRS{removable}=="unknown"
+    ATTRS{rx_lanes}=="1"
+    ATTRS{serial}=="3f980000.usb"
+    ATTRS{speed}=="480"
+    ATTRS{tx_lanes}=="1"
+    ATTRS{urbnum}=="25"
+    ATTRS{version}==" 2.00"
+
+  looking at parent device '/devices/platform/soc/3f980000.usb':
+    KERNELS=="3f980000.usb"
+    SUBSYSTEMS=="platform"
+    DRIVERS=="dwc_otg"
+    ATTRS{busconnected}=="Bus Connected = 0x1"
+    ATTRS{buspower}=="Bus Power = 0x1"
+    ATTRS{bussuspend}=="Bus Suspend = 0x0"
+    ATTRS{devspeed}=="Device Speed = 0x0"
+    ATTRS{driver_override}=="(null)"
+    ATTRS{enumspeed}=="Device Enumeration Speed = 0x1"
+    ATTRS{fr_interval}=="Frame Interval = 0x1d4b"
+    ATTRS{ggpio}=="GGPIO = 0x00000000"
+    ATTRS{gnptxfsiz}=="GNPTXFSIZ = 0x01000306"
+    ATTRS{gotgctl}=="GOTGCTL = 0x001c0001"
+    ATTRS{gpvndctl}=="GPVNDCTL = 0x00000000"
+    ATTRS{grxfsiz}=="GRXFSIZ = 0x00000306"
+    ATTRS{gsnpsid}=="GSNPSID = 0x4f54280a"
+    ATTRS{guid}=="GUID = 0x2708a000"
+    ATTRS{gusbcfg}=="GUSBCFG = 0x20001700"
+    ATTRS{hcd_frrem}=="HCD Dump Frame Remaining"
+    ATTRS{hcddump}=="HCD Dump"
+    ATTRS{hnp}=="HstNegScs = 0x0"
+    ATTRS{hnpcapable}=="HNPCapable = 0x1"
+    ATTRS{hprt0}=="HPRT0 = 0x00001005"
+    ATTRS{hptxfsiz}=="HPTXFSIZ = 0x02000406"
+    ATTRS{hsic_connect}=="HSIC Connect = 0x1"
+    ATTRS{inv_sel_hsic}=="Invert Select HSIC = 0x0"
+    ATTRS{mode}=="Mode = 0x1"
+    ATTRS{mode_ch_tim_en}=="Mode Change Ready Timer Enable = 0x0"
+    ATTRS{rd_reg_test}=="Time to read GNPTXFSIZ reg 10000000 times: 1560 msecs (390 jiffies)"
+    ATTRS{regdump}=="Register Dump"
+    ATTRS{regoffset}=="0xffffffff"
+    ATTRS{regvalue}=="invalid offset"
+    ATTRS{rem_wakeup_pwrdn}==""
+    ATTRS{remote_wakeup}=="Remote Wakeup Sig = 0 Enabled = 0 LPM Remote Wakeup = 0"
+    ATTRS{spramdump}=="SPRAM Dump"
+    ATTRS{srp}=="SesReqScs = 0x1"
+    ATTRS{srpcapable}=="SRPCapable = 0x1"
+    ATTRS{wr_reg_test}=="Time to write GNPTXFSIZ reg 10000000 times: 556 msecs (139 jiffies)"
+
+  looking at parent device '/devices/platform/soc':
+    KERNELS=="soc"
+    SUBSYSTEMS=="platform"
+    DRIVERS==""
+    ATTRS{driver_override}=="(null)"
+
+  looking at parent device '/devices/platform':
+    KERNELS=="platform"
+    SUBSYSTEMS==""
+    DRIVERS==""
+
+	
+	
+
+KERNEL[1924.108578] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3 (usb)
+KERNEL[1924.117023] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0 (usb)
+KERNEL[1924.130205] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0 (scsi)
+KERNEL[1924.130576] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/scsi_host/host0 (scsi_host)
+UDEV  [1924.144374] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3 (usb)
+UDEV  [1924.166889] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0 (usb)
+UDEV  [1924.186998] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0 (scsi)
+UDEV  [1924.213039] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/scsi_host/host0 (scsi_host)
+KERNEL[1925.112083] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2 (usb)
+KERNEL[1925.112454] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0 (usb)
+KERNEL[1925.117195] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3 (scsi)
+KERNEL[1925.117443] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/scsi_host/host3 (scsi_host)
+UDEV  [1925.135243] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2 (usb)
+KERNEL[1925.154811] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0 (scsi)
+KERNEL[1925.155120] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0 (scsi)
+KERNEL[1925.155565] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0/scsi_disk/0:0:0:0 (scsi_disk)
+KERNEL[1925.155768] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0/scsi_device/0:0:0:0 (scsi_device)
+KERNEL[1925.158193] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0/scsi_generic/sg0 (scsi_generic)
+KERNEL[1925.160189] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0/bsg/0:0:0:0 (bsg)
+UDEV  [1925.173561] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0 (usb)
+KERNEL[1925.178754] add      /devices/virtual/bdi/8:0 (bdi)
+UDEV  [1925.196293] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0 (scsi)
+UDEV  [1925.199779] add      /devices/virtual/bdi/8:0 (bdi)
+UDEV  [1925.221271] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0 (scsi)
+UDEV  [1925.221567] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3 (scsi)
+KERNEL[1925.226440] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0/block/sda (block)
+KERNEL[1925.226781] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0/block/sda/sda1 (block)
+UDEV  [1925.242846] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0/scsi_disk/0:0:0:0 (scsi_disk)
+UDEV  [1925.255527] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0/scsi_device/0:0:0:0 (scsi_device)
+UDEV  [1925.261834] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0/scsi_generic/sg0 (scsi_generic)
+UDEV  [1925.267199] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/scsi_host/host3 (scsi_host)
+UDEV  [1925.272158] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0/bsg/0:0:0:0 (bsg)
+UDEV  [1925.531656] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0/block/sda (block)
+UDEV  [1925.747448] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.3/1-1.3:1.0/host0/target0:0:0/0:0:0:0/block/sda/sda1 (block)
+KERNEL[1926.142237] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0 (scsi)
+KERNEL[1926.142513] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0 (scsi)
+KERNEL[1926.142659] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/scsi_disk/3:0:0:0 (scsi_disk)
+KERNEL[1926.146875] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/scsi_device/3:0:0:0 (scsi_device)
+KERNEL[1926.147251] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/scsi_generic/sg1 (scsi_generic)
+KERNEL[1926.147466] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/bsg/3:0:0:0 (bsg)
+UDEV  [1926.161436] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0 (scsi)
+UDEV  [1926.178247] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0 (scsi)
+UDEV  [1926.214040] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/bsg/3:0:0:0 (bsg)
+UDEV  [1926.222129] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/scsi_disk/3:0:0:0 (scsi_disk)
+UDEV  [1926.228504] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/scsi_generic/sg1 (scsi_generic)
+UDEV  [1926.233269] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/scsi_device/3:0:0:0 (scsi_device)
+KERNEL[1928.437323] add      /devices/virtual/bdi/8:16 (bdi)
+UDEV  [1928.445240] add      /devices/virtual/bdi/8:16 (bdi)
+KERNEL[1928.457149] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/block/sdb (block)
+KERNEL[1928.457509] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/block/sdb/sdb1 (block)
+UDEV  [1928.704140] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/block/sdb (block)
+UDEV  [1929.114447] add      /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host3/target3:0:0/3:0:0:0/block/sdb/sdb1 (block)
+KERNEL[1932.012189] add      /devices/virtual/bdi/8:17-fuseblk (bdi)
+UDEV  [1932.019941] add      /devices/virtual/bdi/8:17-fuseblk (bdi)
+

@@ -1,0 +1,4 @@
+#http://www.reactivated.net/writing_udev_rules.html#external-run
+#https://linuxconfig.org/tutorial-on-how-to-write-basic-udev-rules-in-linux
+ACTION=="add", ATTRS{product}=="Expansion", ATTRS{serial}=="NA4AMWZK", RUN+="/bin/su xbian -c '/home/xbian/backup_scripts/backup_from_wdred4g_to_seagate_run_in_back.sh'"
+ACTION=="add", ATTRS{product}=="Expansion", ATTRS{serial}=="NA4AMWZK", RUN+="/bin/su xbian -c '/home/xbian/backup_scripts/test.sh'"
